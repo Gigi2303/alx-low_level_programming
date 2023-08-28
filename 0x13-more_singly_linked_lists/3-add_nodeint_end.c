@@ -9,24 +9,28 @@
  * @n: An integer value to add to the new node.
  * Return: Address of the new element, or NULL if it failed.
  */
+
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-    listint_t *note = malloc(sizeof(listint_t));
-    if (note == NULL)
-        return NULL;
+	listint_t *note = malloc(sizeof(listint_t));
 
-    note->n = n;
-    note->next = NULL;
+	if (note == NULL)
+	return (NULL);
 
-    if (*head == NULL)
-    {
-        *head = note;
-    }
-    else
-    {
-        listint_t *current = *head;
-        while (current->next != NULL)
-	current = current->nextpent->next = note;
+	note->n = n;
+	note->next = NULL;
+
+	if (*head == NULL)
+	{
+	*head = note;
+	}
+	else
+	{
+	listint_t *present = *head;
+
+	while (present->next != NULL)
+	present = present->next;
+	present->next = note;
 	}
 
 	return (note);
