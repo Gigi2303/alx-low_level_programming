@@ -3,41 +3,28 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - this function frees a listint_t list
- * @h: the pointer to the first node in the linked list
- *
- * Return: returns the number of elements in the freed list
+ * free_listint_safe - This function frees a listint_t linked list.
+ * @h: A pointer to a pointer to the head of the list.
+ * Return: The size of the list that was freed.
  */
-
 size_t free_listint_safe(listint_t **h)
 {
 	size_t set = 0;
-	int b;
 	listint_t *copy;
-
-	if (!h || !*h)
-		return (0);
 
 	while (*h)
 	{
-	b = *h - (*h)->next;
-	if (b > 0)
-	{
+	set++;
 	copy = (*h)->next;
 	free(*h);
 	*h = copy;
-	set++;
-	}
-	else
+
+	if ((void *)copy == (void *)*h)
 	{
-	free(*h);
 	*h = NULL;
-	set++;
 	break;
 	}
 	}
-
-	*h = NULL;
 
 	return (set);
 }
