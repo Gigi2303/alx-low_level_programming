@@ -13,8 +13,9 @@ void print_binary(unsigned long int n)
 	int start = 0;
 	int a = 0;
 	unsigned long int b;
+	int num = sizeof(unsigned long int) * 8;
 
-	for ( a = sizeof(unsigned long int) * 8 - 1; a >= 0; a--)
+	for ( a = num - 1; a >= 0; a--)
 	{
 		b = (n >> a) & 1;
 
