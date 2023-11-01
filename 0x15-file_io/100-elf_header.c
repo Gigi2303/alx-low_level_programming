@@ -313,7 +313,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 
 	check_elf(head->e_ident);
-	printf("ELF Head:\n");
+	printf("ELF Header:\n");
 	print_magic(head->e_ident);
 	print_class(head->e_ident);
 	print_data(head->e_ident);
