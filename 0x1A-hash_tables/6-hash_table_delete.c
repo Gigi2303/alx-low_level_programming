@@ -4,6 +4,7 @@
  * hash_table_delete - This is a function that frees and deletes a hash table.
  * @ht: The table to be freed and deleted afterward
  */
+
 void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *curr, *next;
@@ -17,11 +18,11 @@ void hash_table_delete(hash_table_t *ht)
 		curr = ht->array[g];
 		while (curr != NULL)
 		{
-			next = curr->next;
-			free(curr->key);
-			free(curr->value);
-			free(curr);
-			curr = next;
+			next = curr;
+			curr = curr->next;
+			free(next->key);
+			free(next->value);
+			free(next);
 		}
 	}
 	free(ht->array);
